@@ -57,3 +57,137 @@ nav ul li .pages:hover {
     background-color: #800c0c;
 }
 
+.welcome {
+    width: 2300px;
+    height: 600px;
+    padding: 10px;
+    background-color: #800c0c;
+    margin: auto;
+    border-radius: 50px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.welcome h1 {
+    margin-top: 170px;
+    font-size: 56px;
+    text-align: center;
+    color: #fff;
+}
+
+.welcome h2 {
+    margin-top: 30px;
+    font-size: 44px;
+    text-align: center;
+    color: #fff;
+}
+
+.welcome p {
+    margin-top: 30px;
+    font-size: 32px;
+    text-align: center;
+    color: #fff;
+}
+
+.tests ul li{
+  display: inline-block;
+  list-style: none;
+}
+
+.reaction {
+    position: relative;
+    width: 50%;
+  }
+
+.memory {
+    position: relative;
+    width: 50%;
+  }
+
+.mouse {
+    position: relative;
+    width: 50%;
+  }
+
+.typing {
+    position: relative;
+    width: 50%;
+  }
+
+.reactionImage { 
+  background-color: red;
+  display: block;
+  width: 350px;
+  height: 350px;
+  margin: 100px;
+  margin-left: 325px;
+  border-radius: 50px;
+}
+  
+.image {
+    background-color: red;
+    display: block;
+    width: 350px;
+    height: 350px;
+    margin: 100px;
+    border-radius: 50px;
+  }
+  
+.overlay {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-color: #800c0c;
+    border-radius: 50px;
+    overflow: hidden;
+    width: 350px;
+    height:0;
+    transition: .5s ease;
+    margin-left: 100px;
+  }
+  .reactionOverlay {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-color: #800c0c;
+    border-radius: 50px;
+    overflow: hidden;
+    width: 350px;
+    height:0;
+    transition: .5s ease;
+    margin-left: 325px;
+  }
+  
+.reaction:hover .reactionOverlay {
+    bottom: 0;
+    height: 100%;
+  }
+  
+.memory:hover .overlay {
+    bottom: 0;
+    height: 100%;
+  }
+
+.mouse:hover .overlay {
+    bottom: 0;
+    height: 100%;
+  }
+
+.typing:hover .overlay {
+    bottom: 0;
+    height: 100%;
+  }
+  
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
