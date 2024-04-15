@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href="style.css">
+    <title>Benchmark 2.0</title>
+</head>
+<script src="script.js"></script>
+<body>
+    <nav>
+        <img src="images/logo.png" class ="logo" width="75" height="75">
+        <ul>
+            <li>
+                <a class="pages" href="Stats.html">Stats</a>
+            </li>
+            <li>
+                <a class="pages" href="Login.html">Login</a>
+            </li>
+            <li>
+                <a class="pages" href="Sign up.html">Register</a>
+            </li>
+            <li>
+                <a href="Homepage.html"><img src="images/home.png" class="home" width="75" height="75"></a>
+            </li>
+        </ul>
+    </nav>
+
+    <button class="tablink" onclick="openPage('react', this, '#800c0c')">Reaction Time Test</button>
+    <button class="tablink" onclick="openPage('mem', this, '#800c0c')" id="defaultOpen">Sequence Memory Test</button>
+    <button class="tablink" onclick="openPage('aim', this, '#800c0c')">Mouse Aim Test</button>
+    <button class="tablink" onclick="openPage('speed', this, '#800c0c')">Typing Speed Test</button>
+
+    <div id="react" class="tabcontent">
+        <ul>
+            <li>
+                <div class="generalGraph"></div>
+            </li>
+            <li>
+                <div class="ageGraph"></div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="generalPercent"></div>
+            </li>
+            <li>
+                <div class="agePercent"></div>
+            </li>
+        </ul>
+    </div>  
+
+    <div id="mem" class="tabcontent">
+        <ul>
+            <li>
+                <div class="generalGraph"></div>
+            </li>
+            <li>
+                <div class="ageGraph"></div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="generalPercent"></div>
+            </li>
+            <li>
+                <div class="agePercent"></div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="aim" class="tabcontent">
+        <ul>
+            <li>
+                <div class="generalGraph"></div>
+            </li>
+            <li>
+                <div class="ageGraph"></div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="generalPercent"></div>
+            </li>
+            <li>
+                <div class="agePercent"></div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="speed" class="tabcontent">
+        <ul>
+            <li>
+                <div class="generalGraph"></div>
+            </li>
+            <li>
+                <div class="ageGraph"></div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="generalPercent"></div>
+            </li>
+            <li>
+                <div class="agePercent"></div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
