@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACE TRAINING </title>
+    <link rel = "stylesheet" href="style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+
+	<script>
+		$("document").ready(function() {
+			$("#dateSelector").datepicker();
+            $("#dateOfBirth").datepicker();
+		});
+
+        function validateForm() {
+
+            const date = new Date();
+            let todaysDate = (date.getMonth()+1);
+            todaysDate+="/";
+            if ((date.getDate())<10) {
+                todaysDate+="0";
+            }
+            todaysDate+=date.getDate();
+            todaysDate+="/";
+            todaysDate+=date.getFullYear();
+
+            let errorMessage="Invalid: ";
+
+            let fnameTest=true;
+            let snameTest=true;
+            let dobTest=true;
+            let ageTest=true;
+            let dateRegTest=true;
+            let genderTest=true;
+            let courseTest=true;
+
+            let username = document.forms["myForm"]["username"].value;
+            if ((/^[A-z]{1}[a-z]{2,}$/.test(username))==false) {
+                usernameTest=false;
+                errorMessage+=(" Username,");
+            }
+
+            let password = document.forms["myForm"]["password"].value;
+            if ((/^[A-z]{1}[a-z]{1,}$/.test(password))==false) {
+                passwordTest=false;
+                errorMessage+=(" Password");
+            }
+
+            errorMessage=errorMessage.slice(0,((errorMessage.length)-1))
+            
+            if (usernameTest==true && passwordTest==true) {
+                window.alert("All Validation Passed!");
+            } else {
+                document.getElementById("errorMessageBox").innerHTML = errorMessage;
+            }
+            event.preventDefault();
+        }
+
+        function clearForm() {
+            if (confirm("Are you sure you want to clear the form?")) {
+                document.getElementById("myForm").reset();
+            } 
+            event.preventDefault();
+        }
+
+        function returnHome() {
+            if (confirm("Are you sure you want to return to the home page?")) {
+                window.open("index.html")
+                window.close()
+            }
+            event.preventDefault();
+        }
+	</script>
+</head>
+
+<body>
+    <div class = "hero">
+        <nav>
+            <img src="images/menu.png" class ="menu-img" width="50" height="50">
+            <ul>
+                <li>
+                    <a href="Dashboard.html">Home</a>
+                </li>
+                <li>
+                    <a>Login</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class = "block">
+            <form name="myForm"  method="post">
+
+                Username:<input type="text" id="username" name="username">
+                Password:<input type="password" id="password" name="password" >
+
+                <input type="submit" value="Submit" onclick="validateForm()">
+
+                <button id="clear" class="button" onclick="clearForm()">Clear</button>
+                <button id="back" class="button" onclick="returnHome()">Back</button>
+
+                <p id="errorMessageBox"></p>
+        </div>
+    </div>   
+</body>

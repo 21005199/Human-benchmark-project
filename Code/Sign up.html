@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-up</title>
+    <link rel = "stylesheet" href="style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+
+	<script>
+		$("document").ready(function() {
+			$("#dateSelector").datepicker();
+            $("#dateOfBirth").datepicker();
+		});
+
+        function validateForm() {
+
+            const date = new Date();
+            let todaysDate = (date.getMonth()+1);
+            todaysDate+="/";
+            if ((date.getDate())<10) {
+                todaysDate+="0";
+            }
+            todaysDate+=date.getDate();
+            todaysDate+="/";
+            todaysDate+=date.getFullYear();
+
+            let errorMessage="Invalid: ";
+
+            let fnameTest=true;
+            let snameTest=true;
+            let dobTest=true;
+            let ageTest=true;
+            let dateRegTest=true;
+            let genderTest=true;
+            let courseTest=true;
+
+            let username = document.forms["myForm"]["username"].value;
+            if ((/^[A-z]{1}[a-z]{2,}$/.test(username))==false) {
+                usernameTest=false;
+                errorMessage+=(" Username,");
+            }
+
+            let fname = document.forms["myForm"]["frmForename"].value;
+            if ((/^[A-z]{1}[a-z]{2,}$/.test(fname))==false) {
+                fnameTest=false;
+                errorMessage+=(" Forename,");
+            }
+
+            let sname = document.forms["myForm"]["frmSurname"].value;
+            if ((/^[A-z]{1}[a-z]{1,}$/.test(sname))==false) {
+                snameTest=false;
+                errorMessage+=(" Surname,");
+            }
+
+            let age = document.forms["myForm"]["frmAge"].value;
+            age=parseFloat(age);
+            if (age<12 || age>150 || age!=calcAge || (Number.isInteger(age))==false) {
+                ageTest=false;
+                errorMessage+=(" Age,");
+            }
+
+            let gender = document.forms["myForm"]["frmGender"].value;
+            if (gender == "") {
+                genderTest=false;
+                errorMessage+=(" Gender,");
+            }
+
+            let password = document.forms["myForm"]["password"].value;
+            if ((/^[A-z]{1}[a-z]{1,}$/.test(password))==false) {
+                passwordTest=false;
+                errorMessage+=(" Password,");
+            }
+
+            let confirm= document.forms["myForm"]["confirm"].value;
+            if (confirm!=password) {
+                confirmTest=false;
+                errorMessage+=(" Password Confirm");
+            }
+
+            errorMessage=errorMessage.slice(0,((errorMessage.length)-1))
+            
+            if (usernameTest==true && fnameTest==true && snameTest==true && ageTest==true && genderTest==true && passwordTest==true && confirmTest==true) {
+                window.alert("All Validation Passed!");
+            } else {
+                document.getElementById("errorMessageBox").innerHTML = errorMessage;
+            }
+            event.preventDefault();
+        }
+
+        function clearForm() {
+            if (confirm("Are you sure you want to clear the form?")) {
+                document.getElementById("myForm").reset();
+            } 
+            event.preventDefault();
+        }
+
+        function returnHome() {
+            if (confirm("Are you sure you want to return to the home page?")) {
+                window.open("index.html")
+                window.close()
+            }
+            event.preventDefault();
+        }
+	</script>
+</head>
+
+<body>
+    <div class = "hero">
+        <nav>
+            <img src="images/menu.png" class ="menu-img" width="50" height="50">
+            <ul>
+                <li>
+                    <a href="Dashboard.html">Home</a>
+                </li>
+                <li>
+                    <a>Login</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class = "block">
+            <form name="myForm"  method="post">
+                Username: <input type="text" id="username" name="username" placeholder="e.g JohnDoe123">
+                Forename: <input type="text" id="fname" name="frmForename" placeholder="e.g John">
+                Surename:<input type="text" id="lname" name="frmSurname" placeholder="e.g Smith">
+                Age:<input type="text" id="age" name="frmAge" placeholder="e.g 18">
+	
+				<label for="male">Gender:</label><br>
+				<input type="radio" id="male" name="frmGender" value="Male">
+				<label for="male">Male</label><br>
+				<input type="radio" id="female" name="frmGender" value="Female">
+				<label for="female">Female</label><br><br>
+
+                Password:<input type="password" id="password" name="password">
+                Confirm Password:<input type="password" id="confirm" name="confirm">
+
+                <input type="submit" value="Submit" onclick="validateForm()">
+
+                <button id="clear" class="button" onclick="clearForm()">Clear</button>
+                <button id="back" class="button" onclick="returnHome()">Back</button>
+
+                <p id="errorMessageBox"></p>
+        </div>
+    </div>   
+</body>
