@@ -191,3 +191,55 @@ nav ul li .pages:hover {
     transform: translate(-50%, -50%);
     text-align: center;
   }
+
+  .block {
+    border-radius: 50px;
+    background: #800c0c;
+    padding: 40px; 
+    margin: auto;
+    width: 2000px;
+    font-size: 28px;
+    color: #fff;
+    margin-top: 100px;
+  }
+  
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 24px 40px;
+    margin: 16px 0;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+    font-size: 28px;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: red;
+    color: white;
+    padding: 28px 40px;
+    margin: 16px 0;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 28px;
+  }
+  
+  input[type=submit]:hover {
+    background-color: rgb(209, 0, 0);
+  }
+  
+  .errorMessageBox {
+    text-align: centre;
+    color: rgb(197, 0, 0);
+  }
+  .link {
+    color: #fff;
+    text-align: center;
+  }
+
+  .link a {
+    color: aqua;
+    text-align: center;
+  }
